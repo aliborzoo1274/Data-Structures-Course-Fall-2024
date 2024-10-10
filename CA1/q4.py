@@ -10,7 +10,7 @@ while True:
         if my_list == None:
             print('nulle')
         else:
-            my_list.append(user_input[1])
+            my_list.append(int(user_input[1]))
     elif command == 4:
         if my_list == None:
             print('nulle')
@@ -19,9 +19,9 @@ while True:
         else:
             print(my_list[int(user_input[1])])
     elif command == 5:
-        if int(user_input[1]) == 0:
+        if int(user_input[2]) == 0:
             print('sefre')
         else:
-            print(int(user_input[2]) / int(user_input[1]))
+            print(int(int(user_input[1]) / int(user_input[2])))
     elif command == 6:
         break

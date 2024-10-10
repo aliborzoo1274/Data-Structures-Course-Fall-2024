@@ -1,6 +1,9 @@
 input = input()
 string_output = ''
 
+input = input[1:]
+input = input[:-1]
+
 while input[0] == ' ':
     input = input[1:]
 

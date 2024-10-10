@@ -2,29 +2,23 @@ import ast
 
 matrix = ast.literal_eval(input())
 output = []
-while True:
-    for elem in matrix[0]:
-        output.append(elem)
-    del matrix[0]
-    if len(matrix) == 0:
-        break
 
-    for list in matrix:
-        output.append(list[-1])
-        del list[-1]
-    if len(matrix) == 0:
-        break
-
-    for i in range(len(matrix[-1]) - 1, -1, -1):
-        output.append(matrix[-1][i])
-    del matrix[-1]
-    if len(matrix) == 0:
+while matrix and any(matrix):
+    
+    output.extend(matrix.pop(0))
+    if not matrix or not any(matrix):
         break
     
-    for i in range(len(matrix) - 1, -1, -1):
-        output.append(matrix[i][0])
-        del matrix[i][0]
-    if len(matrix) == 0:
+    for row in matrix:
+        output.append(row.pop())
+    if not matrix or not any(matrix):
         break
+    
+    output.extend(matrix.pop()[::-1])
+    if not matrix or not any(matrix):
+        break
+    
+    for row in reversed(matrix):
+        output.append(row.pop(0))
 
 print(output)
